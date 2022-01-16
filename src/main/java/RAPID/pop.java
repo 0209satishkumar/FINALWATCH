@@ -29,14 +29,21 @@ public class pop {
 		  WebDriverManager.chromedriver().setup();
 
 			ChromeOptions options = new ChromeOptions();
+			
+			options.addArguments("--headless");
+			
+			driver = new ChromeDriver(options);
+			
+			options.setHeadless(true);
 
 			options.addExtensions(new File(".//Metamask//Extension1.crx"));
 
-			driver = new ChromeDriver(options);
+			
+			
 			
 			options.addArguments("--no-sandbox");
 			
-	        options.addArguments("--disable-dev-shm-usage");
+	        //options.addArguments("--disable-dev-shm-usage");
 
 			driver.manage().deleteAllCookies();
 			
@@ -54,7 +61,7 @@ public class pop {
 
 			WebDriverWait wait = new WebDriverWait(driver, 60);
 
-			driver.switchTo().window(newTb.get(1));
+			driver.switchTo().window(newTb.get(0));
 
 			Dimension d = new Dimension(1800, 1080);
 
