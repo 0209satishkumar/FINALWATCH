@@ -62,7 +62,7 @@ public class NewTest {
 
 		WebDriverWait wait = new WebDriverWait(driver, 60);
 
-		driver.switchTo().window(newTb.get(1));
+		driver.switchTo().window(newTb.get(0));
 
 		Dimension d = new Dimension(1800, 1080);
 
