@@ -43,6 +43,8 @@ public class pop {
 			
 			options.addArguments("--no-sandbox");
 			
+			options.addArguments("--disable-dev-shm-usage");
+			
 	        //options.addArguments("--disable-dev-shm-usage");
 
 			driver.manage().deleteAllCookies();
