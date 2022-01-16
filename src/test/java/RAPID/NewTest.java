@@ -25,44 +25,57 @@ public class NewTest {
   @Test
   public void f() throws IOException {
 	  
-//	  WebDriverManager.chromedriver().setup();
-//
-//		ChromeOptions options = new ChromeOptions();
-//
-//		options.addExtensions(new File(".//Metamask//Extension1.crx"));
-//
-//		driver = new ChromeDriver(options);
-//
-//		driver.manage().deleteAllCookies();
-//		
-//		driver.get("https://main.d1wxtput80cmif.amplifyapp.com");
-//
-//		System.out.println("Page title of new tab: " + driver.getTitle());
-//
-//		ArrayList<String> newTb = new ArrayList<String>(driver.getWindowHandles());
-//
-//		driver.switchTo().window(newTb.get(0));
-//
-//		driver.navigate().refresh();
-//
-//		driver.navigate().refresh();
-//
-//		WebDriverWait wait = new WebDriverWait(driver, 60);
-//
-//		driver.switchTo().window(newTb.get(1));
-//
-//		Dimension d = new Dimension(1800, 1080);
-//
-//		driver.manage().window().setSize(d);
-//		
-//		File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-//
-//		// creates file at System.getProperty("user.dir")
-//
-//		FileUtils.copyFile(srcFile, new File(".//Screenshots//helo1.png"));
-//		
-//		WebElement Name=driver.findElement(By.xpath("//*[text()='Login']"));
-//		Name.click();
+	  WebDriverManager.chromedriver().setup();
+
+		ChromeOptions options = new ChromeOptions();
+		
+		options.addArguments("--headless");
+		
+		driver = new ChromeDriver(options);
+		
+		options.setHeadless(true);
+
+		options.addExtensions(new File(".//Metamask//Extension1.crx"));
+
+		
+		
+		
+		options.addArguments("--no-sandbox");
+		
+		options.addArguments("--disable-dev-shm-usage");
+		
+      //options.addArguments("--disable-dev-shm-usage");
+
+		driver.manage().deleteAllCookies();
+
+		driver.get("https://main.d1wxtput80cmif.amplifyapp.com");
+
+		System.out.println("Page title of new tab: " + driver.getTitle());
+
+		ArrayList<String> newTb = new ArrayList<String>(driver.getWindowHandles());
+
+		driver.switchTo().window(newTb.get(0));
+
+		driver.navigate().refresh();
+
+		driver.navigate().refresh();
+
+		WebDriverWait wait = new WebDriverWait(driver, 60);
+
+		driver.switchTo().window(newTb.get(1));
+
+		Dimension d = new Dimension(1800, 1080);
+
+		driver.manage().window().setSize(d);
+		
+		File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+
+		// creates file at System.getProperty("user.dir")
+
+		FileUtils.copyFile(srcFile, new File(".//Screenshots//helo1.png"));
+		
+		WebElement Name=driver.findElement(By.xpath("//*[text()='Login']"));
+		Name.click();
 		System.out.println(" Login button clicked succesfully");
 	
 
