@@ -27,28 +27,16 @@ public class NewTest {
 	  
 	  WebDriverManager.chromedriver().setup();
 
-		ChromeOptions options = new ChromeOptions();
-		
-		options.addArguments("--headless");
-		
-		driver = new ChromeDriver(options);
-		
-		options.setHeadless(true);
-
-		options.addExtensions(new File(".//Metamask//Extension1.crx"));
-
-		
-		
-		
-		options.addArguments("--no-sandbox");
-		
-		options.addArguments("--disable-dev-shm-usage");
-		
-      //options.addArguments("--disable-dev-shm-usage");
-
-		driver.manage().deleteAllCookies();
-
-		driver.get("https://main.d1wxtput80cmif.amplifyapp.com");
+	
+	  
+	  		ChromeOptions options = new ChromeOptions();
+	  
+	  		options.addExtensions(new File(".//Metamask//Extension1.crx"));
+	  
+	  		driver = new ChromeDriver(options);
+	  
+	  		driver.manage().deleteAllCookies();
+		driver.get("https://main.d1wxtput80cmif.amplifyapp.com/login");
 
 		System.out.println("Page title of new tab: " + driver.getTitle());
 
@@ -62,7 +50,7 @@ public class NewTest {
 
 		WebDriverWait wait = new WebDriverWait(driver, 60);
 
-		driver.switchTo().window(newTb.get(0));
+		driver.switchTo().window(newTb.get(1));
 
 		Dimension d = new Dimension(1800, 1080);
 
@@ -74,8 +62,8 @@ public class NewTest {
 
 		FileUtils.copyFile(srcFile, new File(".//Screenshots//helo1.png"));
 		
-		WebElement Name=driver.findElement(By.xpath("//*[text()='Login']"));
-		Name.click();
+		WebElement Name=driver.findElement(By.xpath("//*[@placeholder='someone@example.com']"));
+		Name.sendKeys("kumar@gmail.com");
 		System.out.println(" Login button clicked succesfully");
 	
 

@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="RAPID.pop">
+      <class name="RAPID.NewTest">
         <methods>
           <include name="f"/>
         </methods>
-      </class> <!-- RAPID.pop -->
+      </class> <!-- RAPID.NewTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
