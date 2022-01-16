@@ -33,6 +33,10 @@ public class pop {
 			options.addExtensions(new File(".//Metamask//Extension1.crx"));
 
 			driver = new ChromeDriver(options);
+			
+			options.addArguments("--no-sandbox");
+			
+	        options.addArguments("--disable-dev-shm-usage");
 
 			driver.manage().deleteAllCookies();
 			
