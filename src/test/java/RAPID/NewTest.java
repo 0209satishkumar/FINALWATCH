@@ -31,11 +31,17 @@ public class NewTest {
 	@Test
 	public void f() throws IOException, InterruptedException {
 
-		WebDriverManager.chromedriver().setup();
+		//WebDriverManager.chromedriver().setup();
+		
+		
 		
 		ChromeOptions options = new ChromeOptions();
+		
 		options.addArguments("--headless");
-		 driver = new ChromeDriver(options);
+		
+		System.setProperty("webdriver.chrome.driver", ".//Chromedriver.99");
+		
+		driver = new ChromeDriver(options);
 
 		//driver = new ChromeDriver();
 
