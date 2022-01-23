@@ -35,7 +35,7 @@ public class NewTest {
 		
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--headless");
-		options.addArguments("start-maximized");
+	
 		 driver = new ChromeDriver(options);
 
 		//driver = new ChromeDriver();
