@@ -33,13 +33,7 @@ public class NewTest {
 
 		WebDriverManager.chromedriver().setup();
 
-ChromeOptions options = new ChromeOptions();
-		
-		options.addArguments("--headless");
-		
-		driver = new ChromeDriver(options);
-		
-		options.setHeadless(true);
+		driver = new ChromeDriver();
 
 		driver.manage().deleteAllCookies();
 		System.out.println(dateFormatted);
