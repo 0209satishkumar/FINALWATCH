@@ -33,12 +33,8 @@ public class NewTest {
 
 		//WebDriverManager.chromedriver().setup();
 		
-		System.setProperty("webdriver.chrome.driver", "//Chromedriver/99");
-		// driver = new ChromeDriver();
 		
 		ChromeOptions chromeOptions = new ChromeOptions();
-		chromeOptions.setBinary("/Chromedriver/99")	;	
-
         chromeOptions.addArguments("--headless");
         chromeOptions.addArguments("--no-sandbox");
 
