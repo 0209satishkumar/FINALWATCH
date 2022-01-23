@@ -31,9 +31,14 @@ public class NewTest {
 	@Test
 	public void f() throws IOException, InterruptedException {
 
-		WebDriverManager.chromedriver().setup();
+		//WebDriverManager.chromedriver().setup();
+		
+		System.setProperty("webdriver.chrome.driver", "//Chromedriver/99");
+		// driver = new ChromeDriver();
 		
 		ChromeOptions chromeOptions = new ChromeOptions();
+		chromeOptions.setBinary("/Chromedriver/99")	;	
+
         chromeOptions.addArguments("--headless");
         chromeOptions.addArguments("--no-sandbox");
 
