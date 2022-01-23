@@ -36,11 +36,12 @@ public class NewTest {
 		driver = new ChromeDriver();
 
 		driver.manage().deleteAllCookies();
+		
 		System.out.println(dateFormatted);
 
 		driver.get("https://demo19952021.flush.com/");
 
-		Thread.sleep(5000);
+	System.out.println("testing started ");
 	}
 
 	@Test()
