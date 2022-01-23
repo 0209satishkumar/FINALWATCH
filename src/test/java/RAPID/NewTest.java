@@ -1,33 +1,39 @@
 package RAPID;
 
-import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-
-import org.apache.commons.io.FileUtils;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Properties;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class NewTest {
-	
-	static WebDriver driver;
-	
-  @Test
-  public void f() throws IOException {
-	  
-	  WebDriverManager.chromedriver().setup();
 
-		ChromeOptions options = new ChromeOptions();
+	static WebDriver driver;
+
+	DateFormat dateFormat = new SimpleDateFormat("HHmmss");
+
+	Date date = new Date();
+
+	String dateFormatted = dateFormat.format(date);
+
+	@Test
+	public void f() throws IOException, InterruptedException {
+
+		WebDriverManager.chromedriver().setup();
+
+ChromeOptions options = new ChromeOptions();
 		
 		options.addArguments("--headless");
 		
@@ -35,49 +41,44 @@ public class NewTest {
 		
 		options.setHeadless(true);
 
-		options.addExtensions(new File(".//Metamask//Extension1.crx"));
-
-		
-		
-		
-		options.addArguments("--no-sandbox");
-		
-		options.addArguments("--disable-dev-shm-usage");
-		
-      //options.addArguments("--disable-dev-shm-usage");
-
 		driver.manage().deleteAllCookies();
+		System.out.println(dateFormatted);
 
-		driver.get("https://main.d1wxtput80cmif.amplifyapp.com");
+		driver.get("https://demo19952021.flush.com/");
 
-		System.out.println("Page title of new tab: " + driver.getTitle());
+		Thread.sleep(5000);
+	}
 
-		ArrayList<String> newTb = new ArrayList<String>(driver.getWindowHandles());
+	@Test()
 
-		driver.switchTo().window(newTb.get(0));
+	public void signup() throws IOException {
 
-		driver.navigate().refresh();
+		FileReader reader = new FileReader(".//K.properties");
 
-		driver.navigate().refresh();
+		Properties p = new Properties();
 
-		WebDriverWait wait = new WebDriverWait(driver, 60);
+		p.load(reader);
 
-		driver.switchTo().window(newTb.get(0));
+		driver.findElement(By.xpath(p.getProperty("REGISTER"))).click();
 
-		Dimension d = new Dimension(1800, 1080);
+		driver.findElement(By.xpath(p.getProperty("USERNAME"))).sendKeys("satish" + dateFormatted);
 
-		driver.manage().window().setSize(d);
-		
-		File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		driver.findElement(By.xpath(p.getProperty("EMAILID"))).sendKeys("satishkumar" + dateFormatted + "@gmail.com");
 
-		// creates file at System.getProperty("user.dir")
+		driver.findElement(By.xpath(p.getProperty("CHOOSEPASSWORD"))).sendKeys("Satish@123");
 
-		FileUtils.copyFile(srcFile, new File(".//Screenshots//helo1.png"));
-		
-		WebElement Name=driver.findElement(By.xpath("//*[text()='Login']"));
-		Name.click();
-		System.out.println(" Login button clicked succesfully");
-	
+		driver.findElement(By.xpath(p.getProperty("TERMSCHECKBOX"))).click();
 
-  }
+		WebElement element = driver.findElement(By.xpath(p.getProperty("WELCOMEPLAYNOW")));
+
+		Actions builder = new Actions(driver);
+		builder.moveToElement(element).click(element);
+		builder.perform();
+
+		Assert.assertTrue(driver.findElement(By.xpath(p.getProperty("WELCOMEPLAYNOW"))).isDisplayed());
+
+		System.out.println("Sign up successfully ");
+
+	}
+
 }
