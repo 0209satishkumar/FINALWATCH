@@ -33,15 +33,12 @@ public class NewTest {
 
 		WebDriverManager.chromedriver().setup();
 		
-		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--headless");
-	
-		 driver = new ChromeDriver(options);
+		ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--headless");
+        chromeOptions.addArguments("--no-sandbox");
 
-		//driver = new ChromeDriver();
+       driver = new ChromeDriver(chromeOptions);
 
-		driver.manage().deleteAllCookies();
-		
 	//	System.out.println(dateFormatted);
 
 		driver.get("https://demo19952021.flush.com/");
