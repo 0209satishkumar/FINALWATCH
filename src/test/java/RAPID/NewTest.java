@@ -42,37 +42,37 @@ public class NewTest {
 		driver.get("https://demo19952021.flush.com/");
 
 	System.out.println("testing started ");
-	}
+	
 
-	@Test()
-
-	public void signup() throws IOException {
-
-		FileReader reader = new FileReader(".//K.properties");
-
-		Properties p = new Properties();
-
-		p.load(reader);
-
-		driver.findElement(By.xpath(p.getProperty("REGISTER"))).click();
-
-		driver.findElement(By.xpath(p.getProperty("USERNAME"))).sendKeys("satish" + dateFormatted);
-
-		driver.findElement(By.xpath(p.getProperty("EMAILID"))).sendKeys("satishkumar" + dateFormatted + "@gmail.com");
-
-		driver.findElement(By.xpath(p.getProperty("CHOOSEPASSWORD"))).sendKeys("Satish@123");
-
-		driver.findElement(By.xpath(p.getProperty("TERMSCHECKBOX"))).click();
-
-		WebElement element = driver.findElement(By.xpath(p.getProperty("WELCOMEPLAYNOW")));
-
-		Actions builder = new Actions(driver);
-		builder.moveToElement(element).click(element);
-		builder.perform();
-
-		Assert.assertTrue(driver.findElement(By.xpath(p.getProperty("WELCOMEPLAYNOW"))).isDisplayed());
-
-		System.out.println("Sign up successfully ");
+//	@Test()
+//
+//	public void signup() throws IOException {
+//
+//		FileReader reader = new FileReader(".//K.properties");
+//
+//		Properties p = new Properties();
+//
+//		p.load(reader);
+//
+//		driver.findElement(By.xpath(p.getProperty("REGISTER"))).click();
+//
+//		driver.findElement(By.xpath(p.getProperty("USERNAME"))).sendKeys("satish" + dateFormatted);
+//
+//		driver.findElement(By.xpath(p.getProperty("EMAILID"))).sendKeys("satishkumar" + dateFormatted + "@gmail.com");
+//
+//		driver.findElement(By.xpath(p.getProperty("CHOOSEPASSWORD"))).sendKeys("Satish@123");
+//
+//		driver.findElement(By.xpath(p.getProperty("TERMSCHECKBOX"))).click();
+//
+//		WebElement element = driver.findElement(By.xpath(p.getProperty("WELCOMEPLAYNOW")));
+//
+//		Actions builder = new Actions(driver);
+//		builder.moveToElement(element).click(element);
+//		builder.perform();
+//
+//		Assert.assertTrue(driver.findElement(By.xpath(p.getProperty("WELCOMEPLAYNOW"))).isDisplayed());
+//
+//		System.out.println("Sign up successfully ");
 
 	}
 
