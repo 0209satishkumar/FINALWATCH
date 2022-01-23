@@ -22,22 +22,26 @@ public class NewTest {
 
 	static WebDriver driver;
 
-	DateFormat dateFormat = new SimpleDateFormat("HHmmss");
-
-	Date date = new Date();
-
-	String dateFormatted = dateFormat.format(date);
+//	DateFormat dateFormat = new SimpleDateFormat("HHmmss");
+//
+//	Date date = new Date();
+//
+//	String dateFormatted = dateFormat.format(date);
 
 	@Test
 	public void f() throws IOException, InterruptedException {
 
 		WebDriverManager.chromedriver().setup();
+		
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--headless");
+		 driver = new ChromeDriver(options);
 
-		driver = new ChromeDriver();
+		//driver = new ChromeDriver();
 
 		driver.manage().deleteAllCookies();
 		
-		System.out.println(dateFormatted);
+	//	System.out.println(dateFormatted);
 
 		driver.get("https://demo19952021.flush.com/");
 
